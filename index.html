@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maharaja Motors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: gold;
+    }
+    nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1571607388965-645fa29c7fa3');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      color: gold;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+    .btn {
+      margin-top: 2rem;
+      background-color: gold;
+      color: black;
+      padding: 0.75rem 2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .cars-section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .car-card {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .car-card img {
+      width: 100%;
+      height: auto;
+    }
+    .car-info {
+      padding: 1rem;
+    }
+    .car-info h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .car-info p {
+      margin: 0.5rem 0;
+    }
+    footer {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Maharaja Motors</h1>
+    <nav>
+      <a href="#cars">Cars</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>Drive Royal. Own Timeless.</h2>
+    <p>Japan's finest classic cars, curated and preserved for India's elite. Discover your legacy ride.</p>
+    <a href="#cars" class="btn">Browse Cars</a>
+  </section>
+  <section id="cars" class="cars-section">
+    <div class="car-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/1992_Nissan_Skyline_GT-R_%28R32%29.jpg" alt="Nissan Skyline R32" />
+      <div class="car-info">
+        <h3>1992 Nissan Skyline GT-R R32</h3>
+        <p><strong>Mileage:</strong> 68,000 km</p>
+        <p><strong>Price:</strong> ¥3,500,000 / ₹20L</p>
+        <p><strong>Available for export:</strong> 2042</p>
+        <p>Fully original, service records available, pristine condition. Reserved for discerning collectors.</p>
+      </div>
+    </div>
+    <!-- Add more car-card sections here -->
+  </section>
+  <footer>
+    <p>&copy; 2025 Maharaja Motors. All rights reserved.</p>
+  </footer>
+</body>
+</html>
