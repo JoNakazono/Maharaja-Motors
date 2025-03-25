@@ -113,20 +113,44 @@
     <a href="#cars" class="btn">Browse Cars</a>
   </section>
   <section id="cars" class="cars-section">
-    <div class="car-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/1992_Nissan_Skyline_GT-R_%28R32%29.jpg" alt="Nissan Skyline R32" />
-      <div class="car-info">
-        <h3>1992 Nissan Skyline GT-R R32</h3>
-        <p><strong>Mileage:</strong> 68,000 km</p>
-        <p><strong>Price:</strong> ¥3,500,000 / ₹20L</p>
-        <p><strong>Available for export:</strong> 2042</p>
-        <p>Fully original, service records available, pristine condition. Reserved for discerning collectors.</p>
-      </div>
-    </div>
-    <!-- Add more car-card sections here -->
+    <!-- 車両データはここにJSで表示されます -->
   </section>
   <footer>
     <p>&copy; 2025 Maharaja Motors. All rights reserved.</p>
   </footer>
+
+  <script>
+    const spaceId = '4xrk60pbhwk9';
+    const accessToken = 'wy9oz6ybJzGLjdqpmQ-cwUFf-YhcM9yFd7afBrS9bV4';
+    const url = `https://cdn.contentful.com/spaces/${spaceId}/entries?access_token=${accessToken}&content_type=car&include=1`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        const container = document.getElementById('cars');
+        const assets = data.includes.Asset;
+
+        data.items.forEach((item) => {
+          const fields = item.fields;
+          const imageId = fields.image.sys.id;
+          const image = assets.find((a) => a.sys.id === imageId);
+          const imageUrl = image.fields.file.url;
+
+          const card = document.createElement('div');
+          card.className = 'car-card';
+          card.innerHTML = `
+            <img src="https:${imageUrl}" alt="${fields.name}" />
+            <div class="car-info">
+              <h3>${fields.name}</h3>
+              <p><strong>Mileage:</strong> ${fields.mileage}</p>
+              <p><strong>Price:</strong> ${fields.price}</p>
+              <p><strong>Available for export:</strong> ${fields.exportYear}</p>
+              <p>${fields.description}</p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script>
 </body>
 </html>
