@@ -67,6 +67,7 @@
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: 0 auto;
+      text-align: center;
     }
     .car-card {
       background-color: #1a1a1a;
@@ -102,56 +103,22 @@
   <header>
     <h1>Maharaja Motors</h1>
     <nav>
-      <a href="#cars">Cars</a>
+      <a href="https://www.instagram.com/maharajamotors_japan/" target="_blank">Cars & Contact</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
     </nav>
   </header>
   <section class="hero">
     <h2>Drive Royal. Own Timeless.</h2>
     <p>Japan's finest classic cars, curated and preserved for India's elite. Discover your legacy ride.</p>
-    <a href="#cars" class="btn">Browse Cars</a>
+    <a href="https://www.instagram.com/maharajamotors_japan/" target="_blank" class="btn">View on Instagram</a>
   </section>
   <section id="cars" class="cars-section">
-    <!-- 車両データはここにJSで表示されます -->
+    <p>Our current inventory is available on our <a href="https://www.instagram.com/maharajamotors_japan/" target="_blank" style="color: gold; text-decoration: underline;">Instagram page</a>.</p>
   </section>
   <footer>
     <p>&copy; 2025 Maharaja Motors. All rights reserved.</p>
   </footer>
-
-  <script>
-    const spaceId = '4xrk60pbhwk9';
-    const accessToken = 'wy9oz6ybJzGLjdqpmQ-cwUFf-YhcM9yFd7afBrS9bV4';
-    const url = `https://cdn.contentful.com/spaces/${spaceId}/entries?access_token=${accessToken}&content_type=car&include=1`;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        const container = document.getElementById('cars');
-        const assets = data.includes.Asset;
-
-        data.items.forEach((item) => {
-          const fields = item.fields;
-          const imageId = fields.image.sys.id;
-          const image = assets.find((a) => a.sys.id === imageId);
-          const imageUrl = image.fields.file.url;
-
-          const card = document.createElement('div');
-          card.className = 'car-card';
-          card.innerHTML = `
-            <img src="https:${imageUrl}" alt="${fields.name}" />
-            <div class="car-info">
-              <h3>${fields.name}</h3>
-              <p><strong>Mileage:</strong> ${fields.mileage}</p>
-              <p><strong>Price:</strong> ${fields.price}</p>
-              <p><strong>Manufactured Year:</strong> ${fields.manufacturedYear}</p>
-              <p>${fields.description}</p>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-      });
-  </script>
 </body>
 </html>
+
 
